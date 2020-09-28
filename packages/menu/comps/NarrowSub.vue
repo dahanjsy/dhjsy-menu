@@ -1,5 +1,5 @@
 <template>
-  <div class="narrow-box">
+  <div class="jsy-narrow-sub">
     <el-menu
       v-bind="$attrs"
       :default-active="defaultActive"
@@ -31,11 +31,11 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-.narrow-box {
+<style lang="stylus">
+.jsy-narrow-sub {
   width: 200px;
 
-  >>> .el-menu {
+  .el-menu {
     border-right: none !important;
     background-color: transparent !important;
 

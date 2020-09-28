@@ -52,20 +52,7 @@ export default {
     },
     data: {
       type: Array,
-      default: () => [{
-        name: '个前五关',
-        icon: 'iconshouye',
-        path: 'fdas'
-      }, {
-        name: '北温泉',
-        icon: 'iconshouye',
-        path: 'home1',
-        children: [{
-          name: '不打算的撒',
-          icon: 'iconshouye',
-          path: 'home2'
-        }]
-      }]
+      default: () => []
     }
   },
   data () {

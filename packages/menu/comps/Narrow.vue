@@ -1,5 +1,5 @@
 <template>
-  <div class="over-auto-y">
+  <div class="jsy-narrow">
     <div class="flex-col item-center">
       <template v-for="menu in data">
         <template v-if="menu.children && menu.children.length > 0">
@@ -52,59 +52,63 @@
 </template>
 
 <script>
-import NarrowSub from './NarrowSub.vue'
+import NarrowSub from "./NarrowSub.vue";
 
 export default {
   components: {
-    NarrowSub
+    NarrowSub,
   },
   props: {
     data: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     defaultActive: {
       type: String,
-      default: ''
-    }
+      default: "",
+    },
   },
   methods: {
-    menuClass (menu) {
-      if (menu.path === this.defaultActive) return 'select-bg'
+    menuClass(menu) {
+      if (menu.path === this.defaultActive) return "select-bg";
 
-      const func = menu => {
-        const children = menu.children || []
+      const func = (menu) => {
+        const children = menu.children || [];
         for (const subMenu of children) {
-          if (subMenu.path === this.defaultActive) return 'select-bg'
-          return func(subMenu)
+          if (subMenu.path === this.defaultActive) return "select-bg";
+          return func(subMenu);
         }
-        return 'unselect-bg narrow-item'
-      }
+        return "unselect-bg narrow-item";
+      };
 
-      return func(menu)
+      return func(menu);
     },
 
-    onMenuSelect (path) {
-      this.$emit('select', path)
-    }
-  }
-}
+    onMenuSelect(path) {
+      this.$emit("select", path);
+    },
+  },
+};
 </script>
 
-<style lang="stylus" scoped>
-.popper-box {
-  padding: 0 !important;
-}
+<style lang="stylus">
+.jsy-narrow {
+  overflow-y auto
+  
+  .popper-box {
+    padding: 0 !important;
+  }
 
-.narrow-item:hover {
-  background-color: rgba(#303133, 0.3);
-}
+  .narrow-item:hover {
+    background-color: rgba(#303133, 0.3);
+  }
 
-.select-bg {
-  background: #08c4a2;
-}
+  .select-bg {
+    background: #08c4a2;
+  }
 
-.unselect-bg {
-  background: transparent;
+  .unselect-bg {
+    background: transparent;
+  }
 }
 </style>
