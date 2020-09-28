@@ -1,6 +1,6 @@
 {
   "name": "jsy-menu",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "金系列左侧菜单通用库",
   "main": "dist/jsy-menu.umd.min.js",
   "license": "MIT",
