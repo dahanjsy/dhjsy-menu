@@ -70,20 +70,20 @@ export default {
     onCollapse (isNarrow) {
       this.isNarrow = isNarrow
       if (isNarrow) {
-        TweenLite.to('.panel-wide', 0.4, {
+        TweenLite.to('.jsy-panel-wide', 0.4, {
           width: 0,
           opacity: 0
         })
-        TweenLite.to('.panel-narrow', 0.2, {
+        TweenLite.to('.jsy-panel-narrow', 0.2, {
           width: 80,
           opacity: 1
         })
       } else {
-        TweenLite.to('.panel-narrow', 0.2, {
+        TweenLite.to('.jsy-panel-narrow', 0.2, {
           width: 0,
           opacity: 0
         })
-        TweenLite.to('.panel-wide', 0.4, {
+        TweenLite.to('.jsy-panel-wide', 0.4, {
           width: 200,
           opacity: 1
         })
