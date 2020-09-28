@@ -2,11 +2,11 @@
   "name": "jsy-menu",
   "version": "1.0.0",
   "description": "金系列左侧菜单通用库",
-  "main": "index.js",
+  "main": "dist/jsy-menu.umd.min.js",
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "vue-cli-service build --target lib --name dahanjsy-ui --dest dist packages/index.js",
+    "build": "vue-cli-service build --target lib --name jsy-menu --dest dist packages/index.js",
     "prepublishOnly": "yarn run build"
   },
   "files": [
