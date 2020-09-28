@@ -6,7 +6,7 @@
   >
     <template slot="title">
       <jsy-icon v-if="menu.icon" :name="menu.icon" class="mr10" />
-      <span>{{ menu.name }}</span>
+      <span :class="{ 'ml5': !menu.icon }">{{ menu.name }}</span>
     </template>
     <template v-for="subMenu in menu.children">
       <WideSub :key="subMenu.path" :menu="subMenu" />

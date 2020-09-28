@@ -64,7 +64,6 @@ export default {
   methods: {
     onMeneSelect (path) {
       this.currentActive = path
-      console.log(path)
     },
 
     onCollapse (isNarrow) {

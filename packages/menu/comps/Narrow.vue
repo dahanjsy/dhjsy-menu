@@ -70,22 +70,26 @@ export default {
   },
   methods: {
     menuClass(menu) {
-      if (menu.path === this.defaultActive) return "select-bg";
+      if (menu.path === this.defaultActive) return "select-bg"
 
-      const func = (menu) => {
-        const children = menu.children || [];
+      let className
+      const recursion = item => {
+        const children = item.children || []
         for (const subMenu of children) {
-          if (subMenu.path === this.defaultActive) return "select-bg";
-          return func(subMenu);
+          if (subMenu.path === this.defaultActive) {
+            className = "select-bg"
+            return
+          } else {
+            recursion(subMenu)
+          }
         }
-        return "unselect-bg narrow-item";
-      };
-
-      return func(menu);
+      }
+      recursion(menu)
+      return className || "unselect-bg narrow-item"
     },
 
     onMenuSelect(path) {
-      this.$emit("select", path);
+      this.$emit("select", path)
     },
   },
 };
