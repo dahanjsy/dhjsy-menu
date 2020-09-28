@@ -1,6 +1,6 @@
 <template>
-  <div class="menu-box flex">
-    <div class="panel panel-wide">
+  <div class="jsy-menu-box flex">
+    <div class="jsy-panel jsy-panel-wide">
       <MenuTop :logo="logo" :name="name" :is-narrow="isNarrow" />
       <Wide
         :data="data"
@@ -9,7 +9,7 @@
       />
       <MenuBottom :is-narrow="isNarrow" @collapse="onCollapse(true)" />
     </div>
-    <div class="panel panel-narrow">
+    <div class="jsy-panel jsy-panel-narrow">
       <MenuTop :logo="logo" :name="name" :is-narrow="isNarrow" />
       <Narrow
         :data="data"
@@ -111,24 +111,22 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.menu-box {
+.jsy-menu-box {
   height: 100%;
-  width: auto;
-  font-size 13px;
   position: relative;
+  background #294189;
 
-  .panel {
+  .jsy-panel {
     height: 100%;
     white-space: nowrap;
     position: relative;
     overflow: hidden;
-    font-size 13px;
 
-    &.panel-wide {
+    &.jsy-panel-wide {
       width: 200px;
     }
 
-    &.panel-narrow {
+    &.jsy-panel-narrow {
       width: 0;
     }
   }
