@@ -25,7 +25,7 @@
               :class="menuClass(menu)"
             >
               <jsy-icon :name="menu.icon" scale="1.3" />
-              <span class="text-xs pt10">{{ menu.name }}</span>
+              <span class="text-xs pt10">{{ menu.label }}</span>
             </div>
           </el-popover>
         </template>
@@ -33,7 +33,7 @@
         <el-tooltip
           v-else
           :key="menu.path"
-          :content="menu.name"
+          :content="menu.label"
           effect="light"
           placement="right"
         >
@@ -43,7 +43,7 @@
             @click="onMenuSelect(menu.path)"
           >
             <jsy-icon :name="menu.icon" scale="1.3" />
-            <span class="text-xs pt10">{{ menu.name }}</span>
+            <span class="text-xs pt10">{{ menu.label }}</span>
           </div>
         </el-tooltip>
       </template>
