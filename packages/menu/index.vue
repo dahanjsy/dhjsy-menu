@@ -5,6 +5,7 @@
       <Wide
         :data="data"
         :default-active="currentActive"
+        :default-openeds="currentOpeneds"
         @select="onMenuSelect"
       />
       <MenuBottom :is-narrow="isNarrow" @collapse="onCollapse(true)" />
@@ -48,7 +49,15 @@ export default {
     },
     defaultActive: {
       type: String,
-      default: 'home2'
+      default: 'home'
+    },
+    defaultOpeneds: {
+      type: Array,
+      default: () => []
+    },
+    expandAll: {
+      type: Boolean,
+      default: false
     },
     data: {
       type: Array,
@@ -59,6 +68,24 @@ export default {
     return {
       isNarrow: false,
       currentActive: this.defaultActive
+    }
+  },
+  computed: {
+    currentOpeneds() {
+      if (this.expandAll) {
+        const openeds = []
+        const func = children => {
+          if (children && children.length > 0) {
+            children.forEach(item => {
+              openeds.push(item.path)
+              func(item.children)
+            })
+          }
+        }
+        func(this.data)
+        return openeds
+      }
+      return this.defaultOpeneds
     }
   },
   methods: {
