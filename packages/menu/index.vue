@@ -5,7 +5,7 @@
       <Wide
         :data="data"
         :default-active="currentActive"
-        @select="onMeneSelect"
+        @select="onMenuSelect"
       />
       <MenuBottom :is-narrow="isNarrow" @collapse="onCollapse(true)" />
     </div>
@@ -14,7 +14,7 @@
       <Narrow
         :data="data"
         :default-active="currentActive"
-        @select="onMeneSelect"
+        @select="onMenuSelect"
       />
       <MenuBottom :is-narrow="isNarrow" @collapse="onCollapse(false)" />
     </div>
@@ -62,8 +62,9 @@ export default {
     }
   },
   methods: {
-    onMeneSelect (path) {
+    onMenuSelect (path) {
       this.currentActive = path
+      this.$emit('select', path)
     },
 
     onCollapse (isNarrow) {
