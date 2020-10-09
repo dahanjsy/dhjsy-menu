@@ -72,6 +72,11 @@ export default {
       currentActive: this.defaultActive
     }
   },
+  watch: {
+    defaultActive(v) {
+      this.currentActive = v
+    }
+  },
   computed: {
     currentOpeneds() {
       if (this.expandAll) {
