@@ -4,6 +4,7 @@
       <MenuTop :logo="logo" :name="name" :is-narrow="isNarrow" />
       <Wide
         :data="data"
+        class="menu-content"
         :default-active="currentActive"
         :default-openeds="currentOpeneds"
         @select="onMenuSelect"
@@ -14,6 +15,7 @@
       <MenuTop :logo="logo" :name="name" :is-narrow="isNarrow" />
       <Narrow
         :data="data"
+        class="menu-content"
         :default-active="currentActive"
         @select="onMenuSelect"
       />
@@ -135,6 +137,13 @@ export default {
     white-space: nowrap;
     position: relative;
     overflow: hidden;
+
+    .menu-content {
+      height: calc(100vh - 180px);
+      padding: 30px 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
 
     &.jsy-panel-wide {
       width: 200px;

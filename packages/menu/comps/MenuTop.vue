@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex plr20 mb30 border-box border-bottom border-white-2"
+    class="flex plr20 border-box border-bottom border-white-2"
     :class="isNarrow ? 'item-center' : 'items-middle'"
     style="height: 60px;"
   >
