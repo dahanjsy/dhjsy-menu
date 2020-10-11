@@ -72,13 +72,13 @@ export default {
   inject: ['dataProps'],
   methods: {
     menuClass(menu) {
-      if (menu.path === this.defaultActive) return "select-bg"
+      if (menu[this.dataProps.path] === this.defaultActive) return "select-bg"
 
       let className
       const recursion = item => {
-        const children = item.children || []
+        const children = item[this.dataProps.children] || []
         for (const subMenu of children) {
-          if (subMenu.path === this.defaultActive) {
+          if (subMenu[this.dataProps.path] === this.defaultActive) {
             className = "select-bg"
             return
           } else {
