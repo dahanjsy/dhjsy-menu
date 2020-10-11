@@ -5,7 +5,7 @@
     v-on="$listeners"
   >
     <template v-for="menu in data">
-      <WideSub :key="menu.path" :menu="menu" />
+      <WideSub :data-props="dataProps" :key="menu[dataProps.path]" :menu="menu" />
     </template>
   </el-menu>
 </template>
@@ -26,6 +26,7 @@ export default {
       type: String,
       default: ''
     }
-  }
+  },
+  inject: ['dataProps']
 }
 </script>

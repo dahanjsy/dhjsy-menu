@@ -5,7 +5,7 @@
       :default-active="defaultActive"
       v-on="$listeners"
     >
-      <WideSub :menu="menu" />
+      <WideSub :menu="menu" :data-props="dataProps" />
     </el-menu>
   </div>
 </template>
@@ -27,7 +27,8 @@ export default {
       type: String,
       default: ''
     }
-  }
+  },
+  inject: ['dataProps']
 }
 </script>
 

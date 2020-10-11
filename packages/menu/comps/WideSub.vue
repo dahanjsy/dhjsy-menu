@@ -1,21 +1,21 @@
 <template>
   <el-submenu
-    v-if="menu.children && menu.children.length > 0"
-    :key="menu.path"
-    :index="menu.path"
+    v-if="menu[dataProps.children] && menu[dataProps.children].length > 0"
+    :key="menu[dataProps.path]"
+    :index="menu[dataProps.path]"
   >
     <template slot="title">
-      <jsy-icon v-if="menu.icon" :name="menu.icon" class="mr10" />
-      <span :class="{ 'ml5': !menu.icon }">{{ menu.label }}</span>
+      <jsy-icon v-if="menu[dataProps.icon]" :name="menu[dataProps.icon]" class="mr10" />
+      <span :class="{ 'ml5': !menu[dataProps.icon] }">{{ menu[dataProps.label] }}</span>
     </template>
-    <template v-for="subMenu in menu.children">
-      <WideSub :key="subMenu.path" :menu="subMenu" />
+    <template v-for="subMenu in menu[dataProps.children]">
+      <WideSub :key="subMenu[dataProps.path]" :menu="subMenu" />
     </template>
   </el-submenu>
 
-  <el-menu-item v-else :key="menu.path" :index="menu.path">
-    <jsy-icon v-if="menu.icon" :name="menu.icon" class="mr10" />
-    <span :class="{ 'ml5': !menu.icon }">{{ menu.label }}</span>
+  <el-menu-item v-else :key="menu[dataProps.path]" :index="menu[dataProps.path]">
+    <jsy-icon v-if="menu[dataProps.icon]" :name="menu[dataProps.icon]" class="mr10" />
+    <span :class="{ 'ml5': !menu[dataProps.icon] }">{{ menu[dataProps.label] }}</span>
   </el-menu-item>
 </template>
 
@@ -27,6 +27,7 @@ export default {
       type: Object,
       default: () => {}
     }
-  }
+  },
+  inject: ['dataProps']
 }
 </script>

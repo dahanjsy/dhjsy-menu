@@ -4,6 +4,7 @@
       <MenuTop :logo="logo" :name="name" :is-narrow="isNarrow" />
       <Wide
         :data="data"
+        :data-props="dataProps"
         class="menu-content"
         :default-active="currentActive"
         :default-openeds="currentOpeneds"
@@ -15,6 +16,7 @@
       <MenuTop :logo="logo" :name="name" :is-narrow="isNarrow" />
       <Narrow
         :data="data"
+        :data-props="dataProps"
         class="menu-content"
         :default-active="currentActive"
         @select="onMenuSelect"
@@ -64,12 +66,28 @@ export default {
     data: {
       type: Array,
       default: () => []
+    },
+    dataProps: {
+      type: Object,
+      default: () => {
+        return {
+          label: 'menuName',
+          path: 'url',
+          icon: 'icon',
+          children: 'children'
+        }
+      }
     }
   },
   data () {
     return {
       isNarrow: false,
       currentActive: this.defaultActive
+    }
+  },
+  provide() {
+    return {
+      dataProps: this.dataProps
     }
   },
   watch: {
@@ -84,8 +102,8 @@ export default {
         const func = children => {
           if (children && children.length > 0) {
             children.forEach(item => {
-              openeds.push(item.path)
-              func(item.children)
+              openeds.push(item[this.dataProps.path])
+              func(item[this.dataProps.children])
             })
           }
         }
