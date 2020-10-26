@@ -2,25 +2,28 @@
   <div class="jsy-menu-box flex">
     <div class="jsy-panel jsy-panel-wide">
       <MenuTop :logo="logo" :name="name" :is-narrow="isNarrow" />
-      <Wide
-        :data="data"
-        :data-props="dataProps"
-        class="menu-content"
-        :default-active="currentActive"
-        :default-openeds="currentOpeneds"
-        @select="onMenuSelect"
-      />
+      <el-scrollbar class="menu-content">
+        <Wide
+          :data="data"
+          :data-props="dataProps"
+          :default-active="currentActive"
+          :default-openeds="currentOpeneds"
+          @select="onMenuSelect"
+        />
+      </el-scrollbar>
+      
       <MenuBottom :is-narrow="isNarrow" @collapse="onCollapse(true)" />
     </div>
     <div class="jsy-panel jsy-panel-narrow">
       <MenuTop :logo="logo" :name="name" :is-narrow="isNarrow" />
-      <Narrow
-        :data="data"
-        :data-props="dataProps"
-        class="menu-content"
-        :default-active="currentActive"
-        @select="onMenuSelect"
-      />
+      <el-scrollbar class="menu-content">
+        <Narrow
+          :data="data"
+          :data-props="dataProps"
+          :default-active="currentActive"
+          @select="onMenuSelect"
+        />
+      </el-scrollbar>
       <MenuBottom :is-narrow="isNarrow" @collapse="onCollapse(false)" />
     </div>
   </div>
@@ -164,8 +167,6 @@ export default {
     .menu-content {
       height: calc(100vh - 180px);
       padding: 30px 0;
-      overflow-y: auto;
-      overflow-x: hidden;
     }
 
     &.jsy-panel-wide {
