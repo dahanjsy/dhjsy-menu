@@ -4,6 +4,7 @@
       <MenuTop :logo="logo" :name="name" :is-narrow="isNarrow" />
       <el-scrollbar class="menu-content">
         <Wide
+          class="menu-item"
           :data="data"
           :data-props="dataProps"
           :default-active="currentActive"
@@ -18,6 +19,7 @@
       <MenuTop :logo="logo" :name="name" :is-narrow="isNarrow" />
       <el-scrollbar class="menu-content">
         <Narrow
+          class="menu-item"
           :data="data"
           :data-props="dataProps"
           :default-active="currentActive"
@@ -120,7 +122,7 @@ export default {
       return this.defaultOpeneds
     }
   },
-  created() {
+  mounted() {
     if (this.isNarrow) {
       this.onCollapse(this.isNarrow)
     }
@@ -176,6 +178,9 @@ export default {
     .menu-content {
       height: calc(100vh - 180px);
       padding: 30px 0;
+      .menu-item {
+        overflow-x hidden;
+      }
     }
 
     &.jsy-panel-wide {
