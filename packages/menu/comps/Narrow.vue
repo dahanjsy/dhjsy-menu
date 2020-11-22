@@ -100,6 +100,7 @@ export default {
 <style lang="stylus">
 .jsy-narrow {
   overflow-y auto
+  overflow-x hidden
   
   .popper-box {
     padding: 0 !important;

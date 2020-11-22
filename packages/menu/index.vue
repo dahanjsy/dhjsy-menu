@@ -66,6 +66,10 @@ export default {
       type: Boolean,
       default: false
     },
+    shrink: { // 是否收缩模式
+      type: Boolean,
+      default: false
+    },
     data: {
       type: Array,
       default: () => []
@@ -84,7 +88,7 @@ export default {
   },
   data () {
     return {
-      isNarrow: false,
+      isNarrow: this.shrink,
       currentActive: this.defaultActive
     }
   },
@@ -114,6 +118,11 @@ export default {
         return openeds
       }
       return this.defaultOpeneds
+    }
+  },
+  created() {
+    if (this.isNarrow) {
+      this.onCollapse(this.isNarrow)
     }
   },
   methods: {
