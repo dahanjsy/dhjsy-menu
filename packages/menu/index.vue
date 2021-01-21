@@ -128,9 +128,9 @@ export default {
     }
   },
   methods: {
-    onMenuSelect (path) {
-      this.currentActive = path
-      this.$emit('select', path)
+    onMenuSelect (menu) {
+      this.currentActive = menu[this.dataProps.path]
+      this.$emit('select', this.currentActive, menu)
     },
 
     onCollapse (isNarrow) {
