@@ -16,7 +16,7 @@
                 :data-props="dataProps"
                 :menu="subMenu"
                 :default-active="defaultActive"
-                @select="onMenuSelect(subMenu)"
+                @select="onMenuSelect"
               />
             </template>
 
@@ -41,7 +41,7 @@
           <div
             class="c12 text-white pointer flex-col items-middle flex-center ptb15"
             :class="menuClass(menu)"
-            @click="onMenuSelect(menu)"
+            @click="onMenuSelect(menu[dataProps.path])"
           >
             <jsy-icon :name="menu[dataProps.icon]" scale="1.3" />
             <span class="text-xs pt10">{{ menu[dataProps.label] }}</span>
@@ -90,8 +90,8 @@ export default {
       return className || "unselect-bg narrow-item"
     },
 
-    onMenuSelect(menu) {
-      this.$emit("select", menu)
+    onMenuSelect(path) {
+      this.$emit("select", path)
     },
   },
 };
