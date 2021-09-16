@@ -32,6 +32,7 @@
         </template>
 
         <div
+          v-else
           :key="menu[dataProps.path]"
           class="c12 text-white pointer flex-col items-middle flex-center ptb15"
           :class="menuClass(menu)"
