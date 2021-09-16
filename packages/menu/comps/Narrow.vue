@@ -31,7 +31,17 @@
           </el-popover>
         </template>
 
-        <el-tooltip
+        <div
+          :key="menu[dataProps.path]"
+          class="c12 text-white pointer flex-col items-middle flex-center ptb15"
+          :class="menuClass(menu)"
+          @click="onMenuSelect(menu[dataProps.path])"
+        >
+          <jsy-icon :name="menu[dataProps.icon]" scale="1.3" />
+          <span class="text-xs pt10">{{ menu[dataProps.label] }}</span>
+        </div>
+
+        <!-- <el-tooltip
           v-else
           :key="menu[dataProps.path]"
           :content="menu[dataProps.label]"
@@ -46,7 +56,7 @@
             <jsy-icon :name="menu[dataProps.icon]" scale="1.3" />
             <span class="text-xs pt10">{{ menu[dataProps.label] }}</span>
           </div>
-        </el-tooltip>
+        </el-tooltip> -->
       </template>
     </div>
   </div>
