@@ -1,7 +1,7 @@
 <template>
   <div class="jsy-menu-box flex">
     <div class="jsy-panel jsy-panel-wide">
-      <MenuTop :logo="logo" :name="name" :is-narrow="isNarrow" />
+      <MenuTop v-if="name" :logo="logo" :name="name" :is-narrow="isNarrow" />
       <el-scrollbar class="menu-content">
         <Wide
           class="menu-item"
@@ -16,7 +16,7 @@
       <MenuBottom :is-narrow="isNarrow" @collapse="onCollapse(true)" />
     </div>
     <div class="jsy-panel jsy-panel-narrow">
-      <MenuTop :logo="logo" :name="name" :is-narrow="isNarrow" />
+      <MenuTop v-if="name" :logo="logo" :name="name" :is-narrow="isNarrow" />
       <el-scrollbar class="menu-content">
         <Narrow
           class="menu-item"
@@ -54,7 +54,7 @@ export default {
     },
     name: {
       type: String,
-      default: '项目名称'
+      default: ''
     },
     defaultActive: {
       type: String,
