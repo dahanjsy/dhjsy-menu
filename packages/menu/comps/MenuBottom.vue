@@ -1,12 +1,7 @@
 <template>
-  <div
-    class="jsy-collapse-box flex item-center c12 border-box border-white-2 border-top"
-  >
-    <div
-      class="collapse-btn flex items-middle text-sm text-white-5 pointer"
-      @click="onCollapse"
-    >
-      <jsy-icon
+  <div class="jsy-collapse-box">
+    <div class="collapse-btn" @click="onCollapse">
+      <MenuIcon
         :name="isNarrow ? 'el-icon-s-unfold' : 'el-icon-s-fold'"
         size="23"
       />
@@ -15,7 +10,11 @@
 </template>
 
 <script>
+import MenuIcon from './MenuIcon.vue'
 export default {
+  components: {
+    MenuIcon
+  },
   props: {
     logo: {
       type: String,
@@ -38,11 +37,27 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 .jsy-collapse-box {
   height: 60px;
   position: absolute;
   bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 1px solid #eee
+  border-color: rgba(#fff, 0.2);
+
+  .collapse-btn {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    border-color: rgba(#fff, 0.5);
+    cursor: pointer;
+  }
 
   .collapse-btn:hover {
     color: #fff;

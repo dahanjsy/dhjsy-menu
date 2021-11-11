@@ -1,13 +1,13 @@
 <template>
   <div class="jsy-narrow">
-    <div class="flex-col item-center">
+    <div class="narrow-content">
       <template v-for="menu in data">
         <template v-if="menu[dataProps.children] && menu[dataProps.children].length > 0">
           <el-popover
             :key="menu[dataProps.path]"
-            class="full-w"
             placement="right-start"
             trigger="hover"
+            style="width: 100%;"
             popper-class="popper-box"
           >
             <template v-for="subMenu in menu[dataProps.children]">
@@ -22,11 +22,11 @@
 
             <div
               slot="reference"
-              class="c12 text-white pointer flex-col item-center ptb15"
+              class="menu-item"
               :class="menuClass(menu)"
             >
-              <jsy-icon :name="menu[dataProps.icon]" scale="1.3" />
-              <span class="text-xs pt10">{{ menu[dataProps.label] }}</span>
+              <MenuIcon :name="menu[dataProps.icon]" scale="1.3" />
+              <span class="label">{{ menu[dataProps.label] }}</span>
             </div>
           </el-popover>
         </template>
@@ -34,30 +34,14 @@
         <div
           v-else
           :key="menu[dataProps.path]"
-          class="c12 text-white pointer flex-col items-middle flex-center ptb15"
+          class="menu-item"
           :class="menuClass(menu)"
           @click="onMenuSelect(menu[dataProps.path])"
         >
-          <jsy-icon :name="menu[dataProps.icon]" scale="1.3" />
-          <span class="text-xs pt10">{{ menu[dataProps.label] }}</span>
+          <MenuIcon :name="menu[dataProps.icon]" scale="1.3" />
+          <span class="label">{{ menu[dataProps.label] }}</span>
         </div>
 
-        <!-- <el-tooltip
-          v-else
-          :key="menu[dataProps.path]"
-          :content="menu[dataProps.label]"
-          effect="light"
-          placement="right"
-        >
-          <div
-            class="c12 text-white pointer flex-col items-middle flex-center ptb15"
-            :class="menuClass(menu)"
-            @click="onMenuSelect(menu[dataProps.path])"
-          >
-            <jsy-icon :name="menu[dataProps.icon]" scale="1.3" />
-            <span class="text-xs pt10">{{ menu[dataProps.label] }}</span>
-          </div>
-        </el-tooltip> -->
       </template>
     </div>
   </div>
@@ -65,10 +49,12 @@
 
 <script>
 import NarrowSub from "./NarrowSub.vue";
+import MenuIcon from './MenuIcon.vue'
 
 export default {
   components: {
     NarrowSub,
+    MenuIcon
   },
   props: {
     data: {
@@ -108,10 +94,33 @@ export default {
 };
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 .jsy-narrow {
   overflow-y auto
   overflow-x hidden
+
+  .narrow-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .menu-item {
+      width: 100%;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 0;
+      cursor: pointer;
+
+      .label {
+        font-size: 12px;
+        padding-top: 10px;
+      }
+    }
+  }
   
   .popper-box {
     padding: 0 !important;

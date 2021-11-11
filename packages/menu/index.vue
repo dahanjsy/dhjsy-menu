@@ -1,5 +1,5 @@
 <template>
-  <div class="jsy-menu-box flex">
+  <div class="jsy-menu-box">
     <div class="jsy-panel jsy-panel-wide">
       <MenuTop v-if="name" :logo="logo" :name="name" :is-narrow="isNarrow" />
       <el-scrollbar class="menu-content">
@@ -165,6 +165,7 @@ export default {
 
 <style lang="stylus" scoped>
 .jsy-menu-box {
+  display: flex;
   height: 100%;
   position: relative;
   background #294189;

@@ -5,8 +5,8 @@
     :index="menu[dataProps.path]"
   >
     <template slot="title">
-      <jsy-icon v-if="menu[dataProps.icon]" :name="menu[dataProps.icon]" class="mr10" />
-      <span :class="{ 'ml5': !menu[dataProps.icon] }">{{ menu[dataProps.label] }}</span>
+      <MenuIcon v-if="menu[dataProps.icon]" :name="menu[dataProps.icon]" style="margin-right: 10px;" />
+      <span :class="{ 'label': !menu[dataProps.icon] }">{{ menu[dataProps.label] }}</span>
     </template>
     <template v-for="subMenu in menu[dataProps.children]">
       <WideSub :key="subMenu[dataProps.path]" :menu="subMenu" />
@@ -14,14 +14,19 @@
   </el-submenu>
 
   <el-menu-item v-else :key="menu[dataProps.path]" :index="menu[dataProps.path]">
-    <jsy-icon v-if="menu[dataProps.icon]" :name="menu[dataProps.icon]" class="mr10" />
-    <span :class="{ 'ml5': !menu[dataProps.icon] }">{{ menu[dataProps.label] }}</span>
+    <MenuIcon v-if="menu[dataProps.icon]" :name="menu[dataProps.icon]" style="margin-right: 10px;" />
+    <span :class="{ 'label': !menu[dataProps.icon] }">{{ menu[dataProps.label] }}</span>
   </el-menu-item>
 </template>
 
 <script>
+import MenuIcon from './MenuIcon.vue'
+
 export default {
   name: 'WideSub',
+  components: {
+    MenuIcon
+  },
   props: {
     menu: {
       type: Object,
@@ -31,3 +36,9 @@ export default {
   inject: ['dataProps']
 }
 </script>
+
+<style lang="stylus" scoped>
+.label {
+  margin-left: 5px;
+}
+</style>
