@@ -2,7 +2,7 @@
   <div class="jsy-menu-box">
     <div class="jsy-panel jsy-panel-wide">
       <MenuTop v-if="name" :logo="logo" :name="name" :is-narrow="isNarrow" />
-      <el-scrollbar class="menu-content">
+      <el-scrollbar class="menu-content" :class="name ? 'hasTop' : 'noTop'">
         <Wide
           class="menu-item"
           :data="data"
@@ -17,7 +17,7 @@
     </div>
     <div class="jsy-panel jsy-panel-narrow">
       <MenuTop v-if="name" :logo="logo" :name="name" :is-narrow="isNarrow" />
-      <el-scrollbar class="menu-content">
+      <el-scrollbar class="menu-content" :class="name ? 'hasTop' : 'noTop'">
         <Narrow
           class="menu-item"
           :data="data"
@@ -177,10 +177,16 @@ export default {
     overflow: hidden;
 
     .menu-content {
-      height: calc(100vh - 180px);
       padding: 30px 0;
       .menu-item {
         overflow-x hidden;
+      }
+
+      &.hasTop {
+        height: calc(100vh - 180px);
+      }
+      &.noTop {
+        height: calc(100vh - 120px);
       }
     }
 
