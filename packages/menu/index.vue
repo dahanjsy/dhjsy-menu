@@ -177,16 +177,16 @@ export default {
     overflow: hidden;
 
     .menu-content {
-      padding: 30px 0;
       .menu-item {
         overflow-x hidden;
       }
 
       &.hasTop {
-        height: calc(100vh - 180px);
+        padding: 30px 0;
+        height: calc(100% - 180px);
       }
       &.noTop {
-        height: calc(100vh - 120px);
+        height: calc(100% - 60px);
       }
     }
 
