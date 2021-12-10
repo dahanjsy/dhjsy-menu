@@ -40,10 +40,6 @@ export default {
     border-right: none !important;
     background-color: transparent !important;
 
-    .el-menu-item i {
-      color: #fff
-    }
-
     .el-menu-item, .el-submenu__title, .el-submenu .el-menu-item {
       height: 40px;
       line-height: 40px;

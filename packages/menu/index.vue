@@ -164,6 +164,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+>>>.el-menu-item i {
+  color: #fff
+}
+
 .jsy-menu-box {
   display: flex;
   height: 100%;
