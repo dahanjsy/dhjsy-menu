@@ -1,38 +1,36 @@
 <template>
   <div class="jsy-narrow-sub">
-    <el-menu
-      v-bind="$attrs"
-      :default-active="defaultActive"
-      v-on="$listeners"
-    >
+    <el-menu v-bind="$attrs" :default-active="defaultActive" v-on="$listeners">
       <WideSub :menu="menu" :data-props="dataProps" />
     </el-menu>
   </div>
 </template>
 
 <script>
-import WideSub from './WideSub.vue'
+import WideSub from "./WideSub.vue";
 
 export default {
-  name: 'NarrowSub',
+  name: "NarrowSub",
   components: {
-    WideSub
+    WideSub,
   },
   props: {
     menu: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
     defaultActive: {
       type: String,
-      default: ''
-    }
+      default: "",
+    },
   },
-  inject: ['dataProps']
-}
+  inject: ["dataProps"],
+};
 </script>
 
 <style lang="stylus">
+@import '../style/index.styl'
+
 .jsy-narrow-sub {
   width: 200px;
 
@@ -48,8 +46,8 @@ export default {
     }
 
     .el-menu-item.is-active {
-      color: #fff !important;
-      background-color: #08c4a2 !important;
+      color: #294189 !important;
+      background-color: rgba(#294189, 0.1) !important;
     }
 
     .el-submenu__title i {

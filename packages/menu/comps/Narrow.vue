@@ -94,48 +94,6 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
-.jsy-narrow {
-  overflow-y auto
-  overflow-x hidden
-
-  .narrow-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    .menu-item {
-      width: 100%;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 15px 0;
-      cursor: pointer;
-
-      .label {
-        font-size: 12px;
-        padding-top: 10px;
-      }
-    }
-  }
-  
-  .popper-box {
-    padding: 0 !important;
-  }
-
-  .narrow-item:hover {
-    background-color: rgba(#303133, 0.3);
-  }
-
-  .select-bg {
-    background: #08c4a2;
-  }
-
-  .unselect-bg {
-    background: transparent;
-  }
-}
+<style lang="stylus">
+@import '../style/index.styl'
 </style>
