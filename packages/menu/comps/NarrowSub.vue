@@ -42,7 +42,7 @@ export default {
       height: 40px;
       line-height: 40px;
       font-size: 13px;
-      color: #303133 !important;
+      color: #666 !important;
     }
 
     .el-menu-item.is-active {
@@ -51,11 +51,11 @@ export default {
     }
 
     .el-submenu__title i {
-      color: #606266;
+      color: #666;
     }
 
     .el-submenu__title:hover, .el-menu-item:focus, .el-menu-item:hover {
-      background: rgba(#303133, 0.1);
+      background: #F2F3F5;
     }
   }
 }
