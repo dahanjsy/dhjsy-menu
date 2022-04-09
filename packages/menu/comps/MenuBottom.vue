@@ -55,6 +55,7 @@ export default {
     display: flex;
     align-items: center;
     font-size: 13px;
+    color: #A9B3D0;
     border-color: rgba(#fff, 0.5);
     cursor: pointer;
   }
