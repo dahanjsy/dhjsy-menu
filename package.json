@@ -1,12 +1,12 @@
 {
-  "name": "jsy-menu",
-  "version": "1.1.14",
-  "description": "金系列左侧菜单通用库",
-  "main": "dist/jsy-menu.umd.min.js",
+  "name": "dhjsy-menu",
+  "version": "1.0.0",
+  "description": "左侧菜单通用库",
+  "main": "dist/dhjsy-menu.umd.min.js",
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "vue-cli-service build --target lib --name jsy-menu --dest dist packages/index.js",
+    "build": "vue-cli-service build --target lib --name dhjsy-menu --dest dist packages/index.js",
     "prepublishOnly": "yarn run build"
   },
   "files": [
@@ -17,9 +17,9 @@
   "author": "bighone",
   "repository": {
     "type": "git",
-    "url": "git+https://git.dahanjsy.com/npmjs/jsy-menu.git"
+    "url": "git+https://github.com/dahanjsy/dhjsy-menu.git"
   },
-  "homepage": "https://git.dahanjsy.com/npmjs/jsy-menu",
+  "homepage": "https://github.com/dahanjsy/dhjsy-menu",
   "dependencies": {
     "gsap": "^3.5.1"
   },
